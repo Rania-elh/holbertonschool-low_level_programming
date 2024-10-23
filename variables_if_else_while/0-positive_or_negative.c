@@ -7,7 +7,7 @@
  *
  * Description : This function initializes a random number generator,
  * Generates a random nummber, and prints whether the number is positive,
- * zero,  or negative.
+ * zero, or negative.
  *
  * Return: 0 (Success)
  */
@@ -15,9 +15,8 @@
 int main(void)
 {
 int n;
-
-srand(time(0))
-n = rand() - RAND_MAX / 2
+srand(time(0));
+n = rand() - RAND_MAX / 2;
 
 if (n > 0)
 	printf("%d is positive\n", n);
