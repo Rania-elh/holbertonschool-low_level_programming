@@ -5,6 +5,8 @@
  *
  * Return: Always 0.
  */
+
+// Déclaration de la fonction
 void print_alphabet(void);
 int main(void)
 {
