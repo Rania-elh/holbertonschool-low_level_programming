@@ -1,10 +1,18 @@
 #include <stdio.h>
 
-void print_alphabet(void)  /* Début de la définition de la fonction */
+/**
+ * print_alphabet - Affiche les lettres de l'alphabet en minuscules
+ *
+ * Return: Rien
+ */
+
+void print_alphabet(void)
 {
-    for (char c = 'a'; c <= 'z'; c++)
-    {
-        putchar(c);
-    }
-    putchar('\n');
+	char c; /* Déclaration ici */
+
+	for (c = 'a'; c <= 'z'; c++)
+	{
+	putchar(c);
+	}
+	putchar('\n');
 }
