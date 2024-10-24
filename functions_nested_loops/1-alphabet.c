@@ -1,17 +1,10 @@
 #include <stdio.h>
-#include "main.h"
 
-/**
- * main - Entry point
- *
- * Return: 0 (Success)
- */
-
-void print_alphabet(void);
+void print_alphabet(void)  /* Début de la définition de la fonction */
 {
-	char c;
-
-	for (c = 'a' ; c <= 'z' ; c++)
-		_putchar(c);
-	_putchar('\n');
+    for (char c = 'a'; c <= 'z'; c++)
+    {
+        putchar(c);
+    }
+    putchar('\n');
 }

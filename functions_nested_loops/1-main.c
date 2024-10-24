@@ -5,7 +5,7 @@
  *
  * Return: Always 0.
  */
-void print_alphabet(void);  // Déclaration de la fonctionint main(void)
+void print_alphabet(void);
 int main(void)
 {
     print_alphabet();
