@@ -1,14 +1,14 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
- * print_alphabet - Affiche les lettres de l'alphabet en minuscules
+ * print_alphabet - use prototype
  *
- * Return: Rien
  */
 
 void print_alphabet(void)
 {
-	char c; /* Déclaration ici */
+	char c;
 
 	for (c = 'a'; c <= 'z'; c++)
 	{
