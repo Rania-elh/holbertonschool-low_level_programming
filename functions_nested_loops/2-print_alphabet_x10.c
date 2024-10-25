@@ -3,8 +3,10 @@
 
 
 /**
- * print_alphabet810 - use Prototype
+ * print_alphabet_x10 - Prints the alphabet in lowercase 10 times
  *
+ * This function uses _putchar to print the letters a to z,
+ * followed by a new line, and repeats this process 10 times.
  */
 
 void print_alphabet_x10(void)
