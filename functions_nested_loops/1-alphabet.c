@@ -4,15 +4,16 @@
 /**
  * print_alphabet - use prototype
  *
+ * Return: always 0
  */
 
 void print_alphabet(void)
 {
-char c;
+	char c;
 
-for (c = 'a'; c <= 'z'; c++)
+	for (c = 'a'; c <= 'z'; c++)
 	{
-	putchar(c);
+		putchar(c);
 	}
 	putchar('\n');
 }
