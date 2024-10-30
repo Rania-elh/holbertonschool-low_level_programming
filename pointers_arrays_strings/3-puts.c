@@ -1,11 +1,12 @@
 #include "main.h"
-
+#include <stdio.h>
 
 /**
  * _puts - Prints a string
  * @str: (char) text
  * Return: void
  */
+
 void _puts(char *str)
 {
 	int i;
