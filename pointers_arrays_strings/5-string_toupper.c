@@ -1,26 +1,22 @@
-/*
- * File: 5-rev_string.c
- * Auth: Brennan D Baraban
- */
-
 #include "main.h"
+#include <stdio.h>
 
 /**
- * rev_string - Reverses a string.
- * @s: The string to be reversed.
+ * string_toupper - changes all lowercase letters of a string
+ * to uppercase
+ * @s: string to modify
+ *
+ * Return: the resulting string
  */
-void rev_string(char *s)
+char *string_toupper(char *s)
 {
-	int len = 0, index = 0;
-	char tmp;
+	int i;
 
-	while (s[index++])
-		len++;
-
-	for (index = len - 1; index >= len / 2; index--)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		tmp = s[index];
-		s[index] = s[len - index - 1];
-		s[len - index - 1] = tmp;
+		if (s[i] >= 'a' && s[i] <= 'z')
+			s[i] = s[i] - 32;
 	}
+
+	return (s);
 }
