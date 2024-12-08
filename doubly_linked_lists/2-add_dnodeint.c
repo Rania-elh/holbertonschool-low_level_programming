@@ -1,42 +1,27 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * add_dnodeint - Ajoute un  nœudaudébutd'une liste doublement chaînée.
- * @head: Double pointeur vers le premier nœud de la liste.
- * @n: La valeur à insérer dans le nouveau nœud.
+ * add_dnodeint - Adds a new node at the beginning of a dlistint_t list.
+ * @head: A pointer to the head of the dlistint_t list.
+ * @n: The integer for the new node to contain.
  *
- * Return: L'adresse du nouveau nœud, ou NULL si l'allocation échoue.
+ * Return: If the function fails - NULL.
+ *         Otherwise - the address of the new node.
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-dlistint_t *element;
+	dlistint_t *new;
 
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
+		return (NULL);
 
-element = malloc(sizeof(*element));
-if (element == NULL)
-{
-fprintf(stderr, "Erreur sur l'allocation\n");
-exit(EXIT_FAILURE);
-}
+	new->n = n;
+	new->prev = NULL;
+	new->next = *head;
+	if (*head != NULL)
+		(*head)->prev = new;
+	*head = new;
 
-
-element->n = n;
-element->next = NULL;
-element->prev = NULL;
-
-
-if (*head == NULL)
-{
-*head = element;
-}
-else
-{
-element->next = *head;
-(*head)->prev = element;
-*head = element;
-}
-
-return (*head);
+	return (new);
 }
