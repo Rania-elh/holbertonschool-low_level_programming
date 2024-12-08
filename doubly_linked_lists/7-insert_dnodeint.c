@@ -1,50 +1,50 @@
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - Insère à index donné dans  liste Dchaînée
- * @h: Double pointeur vers le premier nœud de la liste
- * @idx: Indice où le nœud doit être inséré (commence à 0)
- * @n: Valeur du nouveau nœud
+ * insert_dnodeint_at_index - Inserts a new node at a given position
+ * @h: Double pointer to the head of the list
+ * @idx: Index where the new node should be added
+ * @n: Integer value for the new node
  *
- * Return: Adresse du nouveau nœud, ou NULL en cas d'échec
+ * Return: Address of the new node, or NULL if it failed or invalid index
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-dlistint_t *new_node, *current = *h;
-unsigned int i = 0;
+	dlistint_t *new_node, *current;
+	unsigned int i;
 
-    /* Cas spécial : insertion au début */
-if (idx == 0)
-return (add_dnodeint(h, n));
-    /* Parcourir la liste pour trouver la position d'insertion */
-while (current != NULL && i < idx - 1)
-{
-current = current->next;
-i++;
+	new_node = malloc(sizeof(dlistint_t));
+	if (!new_node)
+		return (NULL);
+
+	new_node->n = n;
+	current = *h;
+
+	if (idx == 0)
+	{
+		new_node->next = *h;
+		new_node->prev = NULL;
+		if (*h)
+			(*h)->prev = new_node;
+		*h = new_node;
+		return (new_node);
+	}
+
+	for (i = 0; current && i < idx - 1; i++)
+		current = current->next;
+
+	if (!current)
+	{
+		free(new_node);
+		return (NULL);
+	}
+
+	new_node->next = current->next;
+	new_node->prev = current;
+	if (current->next)
+		current->next->prev = new_node;
+	current->next = new_node;
+
+	return (new_node);
 }
 
-    /* Si la position est invalide (indice hors de portée) */
-if (current == NULL && i != idx - 1)
-return (NULL);
-
-    /* Cas spécial : insertion à la fin */
-if (current != NULL && current->next == NULL && i == idx - 1)
-return (add_dnodeint_end(h, n));
-
-    /* Allocation du nouveau nœud */
-new_node = malloc(sizeof(dlistint_t));
-if (new_node == NULL)
-return (NULL);
-
-    /* Initialisation du nouveau nœud */
-new_node->n = n;
-new_node->next = current->next;
-new_node->prev = current;
-
-    /* Mise à jour des pointeurs pour insérer le nœud */
-if (current->next != NULL)
-current->next->prev = new_node;
-current->next = new_node;
-return (new_node);
-}
